@@ -4,9 +4,25 @@ class Product {
 		this.price = price;
 		this.stockQuantity = stockQuantity;
 	}
+
+	addToStock(quantity) {
+		this.stockQuantity += quantity;
+		this.logStockToConsole();
+	}
+
+	removeFromStock(quantity) {
+		this.stockQuantity -= quantity;
+		this.logStockToConsole();
+	}
+
+	logStockToConsole() {
+		console.log(
+			`Current stock for ${this.productName} is now ${this.stockQuantity}.`
+		);
+	}
 }
 
-const product1 = new Product(`Bicicleta`, 750, 1000);
+const bike = new Product(`Bicicleta`, 750, 1000);
 
 // este echivalentul:
 
@@ -16,10 +32,18 @@ const product2 = {
 	stockQuantity: 1000,
 };
 
-const product3 = new Product(`Laptop`, 2500, 300);
+const laptop = new Product(`Laptop`, 2500, 300);
 
-console.log(product1);
+console.log(bike);
 
 console.log(product2);
 
-console.log(product3);
+console.log(laptop);
+
+bike.addToStock(100);
+
+console.log(bike);
+
+laptop.removeFromStock(25);
+
+console.log(laptop);
